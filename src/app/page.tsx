@@ -36,6 +36,8 @@ export default function Home() {
   const [modal, setModal] = useState({ active: false, index: 0 });
   return (
     <main className={styles.main}>
+      {/* Project 컴포넌트들이 렌더링되고, 각각의 Project 컴포넌트는 setModal을 통해 modal 상태를 변경  */}
+      {/* 컴포넌트 위로 올리거나 떠날 때마다 setModal이 호출되어 modal 상태 변경 */}
       <div className={styles.body}>
         {projects.map((el, idx) => {
           return (
@@ -48,6 +50,8 @@ export default function Home() {
           );
         })}
       </div>
+      {/* Home 컴포넌트의 리렌더링을 유발 */}
+      {/* Modal 컴포넌트 내 useEffect */}
       <Modal modal={modal} projects={projects} />
     </main>
   );
